@@ -34,6 +34,7 @@ class Common(Configuration):
         # Apps
         'brics.home',
         'brics.services',
+        'brics.contact',
     )
 
     MIDDLEWARE_CLASSES = (

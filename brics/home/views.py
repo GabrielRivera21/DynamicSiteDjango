@@ -19,6 +19,7 @@ class HomeView(TemplateView):
             context['feature'] = features
             context['feature_count'] = len(context['feature'])
 
+        context['request'] = self.request
         return context
 
 
@@ -28,5 +29,6 @@ class AboutUsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AboutUsView, self).get_context_data(**kwargs)
         context['abouts'] = AboutUs.objects.filter(is_active=True).order_by('order')
+        context['request'] = self.request
 
         return context
