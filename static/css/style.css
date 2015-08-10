@@ -1,0 +1,17 @@
+.no-container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #5a5a5a;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+}
+
+

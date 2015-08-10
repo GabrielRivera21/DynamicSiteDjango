@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content_no_container %}
+    <div class="centered">
+        <h1>About Us</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        {% if abouts %}
+            {% for about in abouts %}
+                <div class="row">
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div class="col-lg-7">
+                            <h2 class="featurette-heading">{{about.header}}</h2>
+                            <p class="lead">
+                                {{about.description}}
+                            </p>
+                        </div>
+                        <div class="col-lg-5">
+                            {% if about.image %}
+                                <img src="{{about.image}}" alt="About Image">
+                            {% else %}
+                                <img src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="col-lg-5">
+                            {% if about.image %}
+                                <img src="{{about.image}}" alt="About Image">
+                            {% else %}
+                                <img src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-7">
+                            <h2 class="featurette-heading">{{about.header}}</h2>
+                            <p class="lead">
+                                {{about.description}}
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-dismissable alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>This Page is under Construction</h4>
+                <p>We will let you know as soon as possible when this page is updated.</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

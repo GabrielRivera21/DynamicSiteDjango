@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content_no_container %}
+    <div class="centered">
+        <h1>Our Services</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+  <div class="panel-group" id="accordion">
+  {% if services %}
+    {% for service in services %}
+        <div class="panel panel-default">
+            <div class="panel-heading" id="{{forloop.counter}}heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" id="accordion{{forloop.counter}}" href="#collapse{{forloop.counter}}">
+                  {{service.title}}
+                </a>
+              </h4>
+            </div>
+            {% if forloop.counter == 1 %}
+                <div id="collapse{{forloop.counter}}" class="panel-collapse collapse in">
+            {% else %}
+                <div id="collapse{{forloop.counter}}" class="panel-collapse collapse">
+            {% endif %}
+              <div class="panel-body">
+
+                <div class="row featurette">
+                  <div class="col-md-5">
+                      {% if service.image %}
+                        <img class="featurette-image img-responsive" src="media/{{service.image}}" alt="Service Picture">
+                      {% else %}
+                        <img class="featurette-image img-responsive" src="{% static 'img/BRICS-LOGO.png' %}" alt="Service Picture">
+                      {% endif %}
+                  </div>
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">{{service.title}}</h2>
+                    <p class="lead">{{ service.description }} </p>
+                    <p><a class="btn btn-lg btn-primary" href="#">See our Work</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+  {% else %}
+        <div class="jumbotron">
+            <h2 class="centered">There are currently no Services being offered. <br><br>Sorry for the inconvience</h2>
+        </div>
+  {% endif %}
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-scroll.js' %}"></script>
+{% endblock %}

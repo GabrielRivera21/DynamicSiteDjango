@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}B.R.I.C.S Financial{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/material-fullpalette.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/ripples.min.css' %}">
+    <link rel="stylesheet" href="{% static 'material-dist/css/roboto.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    {% block extra_css %}
+
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'bootstrap-3.3.4-dist/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+{% include 'common/navbar.html' %}
+
+<div class="no-container">
+    {% block content_no_container %}
+
+    {% endblock %}
+</div>
+
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'common/footer.html' %}
+</div>
+
+<script src="{% static 'material-dist/js/material.min.js' %}"></script>
+<script src="{% static 'material-dist/js/ripples.min.js' %}"></script>
+<script type="text/javascript">
+    $.material.init()
+</script>
+{% block extra_js %}
+
+{% endblock %}
+</body>
+</html>

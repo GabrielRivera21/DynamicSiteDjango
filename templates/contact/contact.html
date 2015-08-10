@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content_no_container %}
+    <div class="centered">
+        <h1>Contact Us</h1>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <div class="jumbotron">
+        {% if success %}
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Well done!</strong> {{ success }}.
+            </div>
+        {% endif%}
+        {% if form.errors %}
+            {% for error in form.errors %}
+                <div class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Oh snap!</strong> The {{error}} field is incorrectly filled. Please try again.
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="{% url 'contact' %}" method="post">{% csrf_token %}
+            <fieldset>
+                <legend>Send us an email</legend>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="id_from_email" class="col-lg-1 control-label">Email:</label>
+                        <div class="col-lg-5">
+                            <input type="email" class="form-control" name="from_email" id="id_from_email" placeholder="Email">
+                        </div>
+                         <label for="id_subject" class="col-lg-1 control-label">Subject:</label>
+                        <div class="col-lg-5">
+                            <input type="text" name="subject" class="form-control" id="id_subject" maxlength="30" placeholder="Subject">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="id_message" class="col-lg-1 control-label">Message:</label>
+                        <div class="col-lg-11">
+                            <textarea class="form-control" id="id_message" rows="4" maxlength="400" name="message" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                </div>
+               <div class="form-group pull-right">
+                   <button type="submit" class="btn btn-primary" value="Send Mail">Send Mail</button>
+               </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
