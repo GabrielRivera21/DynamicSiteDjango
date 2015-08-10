@@ -11,7 +11,7 @@
   <div class="panel-group" id="accordion">
   {% if services %}
     {% for service in services %}
-        <div class="panel panel-default">
+        <div class="panel panel-material-blue-grey-300">
             <div class="panel-heading" id="{{forloop.counter}}heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" id="accordion{{forloop.counter}}" href="#collapse{{forloop.counter}}">
@@ -37,7 +37,9 @@
                   <div class="col-md-7">
                     <h2 class="featurette-heading">{{service.title}}</h2>
                     <p class="lead">{{ service.description }} </p>
-                    <p><a class="btn btn-lg btn-primary" href="#">See our Work</a></p>
+                    {% if service.detail_button_link %}
+                        <p><a class="btn btn-lg btn-material-red-700" href="{{service.detail_button_link}}">See our Work</a></p>
+                    {% endif %}
                   </div>
                 </div>
               </div>

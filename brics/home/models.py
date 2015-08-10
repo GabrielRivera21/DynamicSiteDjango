@@ -20,6 +20,7 @@ class Feature(models.Model):
     order = models.IntegerField()
     title = models.CharField(max_length=45)
     description = models.TextField()
+    detail_button_link = models.CharField(max_length=200, blank=True)
     is_active = models.BooleanField(default=True)
 
     def __unicode__(self):

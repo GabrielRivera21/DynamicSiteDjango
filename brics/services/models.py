@@ -6,6 +6,7 @@ class Service(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField()
     image = models.ImageField(upload_to='photos', blank=True)
+    detail_button_link = models.CharField(max_length=200, blank=True)
     is_active = models.BooleanField(default=True)
 
     def __unicode__(self):

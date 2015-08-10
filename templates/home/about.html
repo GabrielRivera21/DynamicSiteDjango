@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
 {% block content_no_container %}
     <div class="centered">
         <h1>About Us</h1>
@@ -13,7 +17,7 @@
             {% for about in abouts %}
                 <div class="row">
                     {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-lg-7">
+                        <div class="col-lg-7 col-content">
                             <h2 class="featurette-heading">{{about.header}}</h2>
                             <p class="lead">
                                 {{about.description}}
@@ -21,20 +25,20 @@
                         </div>
                         <div class="col-lg-5">
                             {% if about.image %}
-                                <img src="{{about.image}}" alt="About Image">
+                                <img class="img-responsive" src="{{about.image}}" alt="About Image">
                             {% else %}
-                                <img src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
+                                <img class="img-responsive" src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
                             {% endif %}
                         </div>
                     {% else %}
                         <div class="col-lg-5">
                             {% if about.image %}
-                                <img src="{{about.image}}" alt="About Image">
+                                <img class="img-responsive" src="{{about.image}}" alt="About Image">
                             {% else %}
-                                <img src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
+                                <img class="img-responsive" src="{% static 'img/BRICS-LOGO.png' %}" alt="About Image">
                             {% endif %}
                         </div>
-                        <div class="col-lg-7">
+                        <div class="col-lg-7 col-content">
                             <h2 class="featurette-heading">{{about.header}}</h2>
                             <p class="lead">
                                 {{about.description}}

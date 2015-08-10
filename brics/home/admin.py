@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import CarouselImage, Feature
+from .models import CarouselImage, Feature, AboutUs
 
 
 class CarouselAdmin(admin.ModelAdmin):
@@ -8,7 +8,7 @@ class CarouselAdmin(admin.ModelAdmin):
         u'id',
         'title',
         'description',
-        'is_active'
+        'is_active',
     )
 
     list_filter = ('is_active',)
@@ -20,12 +20,24 @@ class FeatureAdmin(admin.ModelAdmin):
         u'id',
         'title',
         'description',
-        'is_active'
+        'is_active',
     )
 
     list_filter = ('is_active',)
     search_fields = ('title', 'description',)
 
 
+class AboutAdmin(admin.ModelAdmin):
+    list_display = (
+        u'id',
+        'header',
+        'description',
+        'is_active',
+    )
+
+    list_filter = ('is_active',)
+    search_fields = ('header', 'description',)
+
 admin.site.register(CarouselImage, CarouselAdmin)
 admin.site.register(Feature, FeatureAdmin)
+admin.site.register(AboutUs, AboutAdmin)
