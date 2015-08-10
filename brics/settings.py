@@ -89,10 +89,6 @@ class Common(Configuration):
 
     SITE_NAME = values.Value(environ_prefix=None)
 
-    ACTIVATION_URL = values.Value(environ_prefix=None)
-
-    PASSWORD_RESET_CONFIRM_URL = values.Value(environ_prefix=None)
-
     DEFAULT_FROM_EMAIL = values.Value()
     EMAIL_HOST = values.Value()
     EMAIL_HOST_USER = values.Value()
