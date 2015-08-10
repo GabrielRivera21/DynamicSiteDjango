@@ -17,7 +17,7 @@ class Common(Configuration):
 
     TEMPLATE_DEBUG = values.BooleanValue(DEBUG)
 
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['brics.herokuapp.com', '*']
 
     # Application definition
     INSTALLED_APPS = (
@@ -110,8 +110,6 @@ class Development(Common):
 
     TEMPLATE_DEBUG = True
 
-    WEPAY_PRODUCTION = False
-
     ALLOWED_HOSTS = []
 
     INSTALLED_APPS = Common.INSTALLED_APPS + (
@@ -127,8 +125,6 @@ class Staging(Common):
     """
     The in-staging settings.
     """
-    WEPAY_PRODUCTION = False
-
     INSTALLED_APPS = Common.INSTALLED_APPS + (
         'djangosecure',
     )
