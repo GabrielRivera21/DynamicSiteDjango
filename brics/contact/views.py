@@ -2,6 +2,7 @@ from django.views.generic import FormView
 
 from .forms import ContactForm
 
+from ..home.models import Footer
 
 class ContactView(FormView):
     form_class = ContactForm
@@ -17,4 +18,8 @@ class ContactView(FormView):
     def get_context_data(self, **kwargs):
         context = super(ContactView, self).get_context_data(**kwargs)
         context['request'] = self.request
+
+        footers = Footer.objects.filter(is_active=True).order_by('order')[:3]
+        if len(footers) > 0:
+            context['footer_col_count'] = footers
         return context

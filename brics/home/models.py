@@ -36,3 +36,13 @@ class AboutUs(models.Model):
 
     def __unicode__(self):
         return "%s" % self.header
+
+
+class Footer(models.Model):
+    head_title = models.CharField(max_length=45)
+    description = models.TextField()
+    order = models.IntegerField()
+    is_active = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        return "%s" % self.head_title

@@ -1,3 +1,8 @@
+#main {
+  min-height: 100%;
+  overflow:auto;
+}
+
 .no-container {
   padding-top: 50px;
   padding-bottom: 10px;
@@ -10,8 +15,20 @@
   text-align: center;
 }
 
-.container {
-  height: 100%;
+.footer-area {
+  color: #8C8989;
+  border-top: 12px solid #D1D1D2;
+  background-color: #363839;
+  padding-top: 43px;
+  padding-bottom: 40px;
 }
+
+#footer {
+    color: #8C8989;
+    padding: 18px 10px 12px;
+    background: #282a2b;
+    border-top: 1px solid #4b4c4d;
+}
+
 
 

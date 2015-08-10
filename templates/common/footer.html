@@ -1,3 +1,18 @@
-<footer>
-    <p>&copy; B.R.I.C.S Financial 2015</p>
+{% if footer_col_count %}
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+            {% for col in footer_col_count %}
+                <div class="col-lg-4">
+                    <h3>{{col.head_title}}</h3>
+                    <p>{{col.description}}</p>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    </footer>
+{% endif %}
+<footer id="footer">
+    <p class="pull-right"><a href="#">Back to Top.</a></p>
+    <p>&copy; 2015 B.R.I.C.S Financial &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 </footer>
